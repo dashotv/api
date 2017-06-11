@@ -2,25 +2,13 @@ package main
 
 import (
 	"net/http"
-	"os"
 	"time"
 
 	jwt_lib "github.com/dgrijalva/jwt-go"
-	"gopkg.in/gin-gonic/gin.v1"
+	"github.com/gin-gonic/gin"
 
 	"github.com/dashotv/models"
 )
-
-var mysupersecretpassword string
-
-func init() {
-	mysupersecretpassword = os.Getenv("TOKEN_SECRET")
-	session := router.Group("/session")
-	{
-		session.POST("/", sessionCreate)
-		session.DELETE("/", sessionDestroy)
-	}
-}
 
 type UserLogin struct {
 	Email    string
@@ -65,5 +53,5 @@ func sessionToken(c *gin.Context) (string, error) {
 		"exp": time.Now().Add(time.Hour * 1).Unix(),
 	}
 	// Sign and get the complete encoded token as a string
-	return token.SignedString([]byte(mysupersecretpassword))
+	return token.SignedString([]byte(tokenSecret))
 }

@@ -3,7 +3,7 @@ package main
 import (
 	jwt_lib "github.com/dgrijalva/jwt-go"
 	"github.com/dgrijalva/jwt-go/request"
-	"gopkg.in/gin-gonic/gin.v1"
+	"github.com/gin-gonic/gin"
 )
 
 func Auth(secret string) gin.HandlerFunc {

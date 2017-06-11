@@ -4,16 +4,10 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/dashotv/models"
-	"gopkg.in/gin-gonic/gin.v1"
-)
+	"github.com/gin-gonic/gin"
 
-func init() {
-	torrents := api.Group("/torrents")
-	{
-		torrents.GET("/", torrentsList)
-	}
-}
+	"github.com/dashotv/models"
+)
 
 func torrentsList(c *gin.Context) {
 	p, err := strconv.Atoi(c.DefaultQuery("page", "1"))
