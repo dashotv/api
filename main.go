@@ -19,8 +19,8 @@ func main() {
 
 	router := gin.Default()
 	corsConfig := cors.Config{
-		AllowOrigins: []string{"https://dasho.tv", "http://localhost:3000"},
-		AllowMethods: []string{"GET, POST, OPTIONS, PUT, DELETE"},
+		AllowOrigins: []string{"https://dasho.tv", "http://localhost:8000"},
+		AllowMethods: []string{"GET, POST, OPTIONS, PUT, DELETE, HEAD"},
 		AllowHeaders: []string{
 			"Origin",
 			"Content-Length",
@@ -44,6 +44,7 @@ func main() {
 	router.GET("/", homeIndex)
 
 	api := router.Group("/api")
+	api.Use(corsMiddleware)
 	api.Use(Auth(tokenSecret))
 
 	torrents := api.Group("/torrents")

@@ -17,7 +17,7 @@
 ## "ignored" lists a set of packages (not projects) that are ignored when
 ## dep statically analyzes source code. Ignored packages can be in this project,
 ## or in a dependency.
-# ignored = ["github.com/user/project/badpkg"]
+ignored = ["github.com/dashotv/models"]
 
 ## Constraints are rules for how directly imported projects
 ## may be incorporated into the depgraph. They are respected by

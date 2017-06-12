@@ -10,13 +10,15 @@ import (
 )
 
 func torrentsList(c *gin.Context) {
-	p, err := strconv.Atoi(c.DefaultQuery("page", "1"))
+	p := c.DefaultQuery("page", "1")
+
+	page, err := strconv.Atoi(p)
 	if err != nil {
-		p = 1
+		page = 1
 	}
 
-	q := models.NewTorrentQuery()
-	r, err := models.TorrentSearch(p, q.M())
+	//q := models.NewTorrentQuery()
+	r, err := models.TorrentIndex(page)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "could not run query"})
 	}
