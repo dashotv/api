@@ -36,9 +36,9 @@ func torrentsSearch(c *gin.Context) {
 	resolution := c.Query("resolution")
 	source := c.Query("source")
 	mtype := c.Query("type")
-	bluray := c.Query("bluray")
-	uncensored := c.Query("uncensored")
-	verified := c.Query("verified")
+	bluray := c.Query("bluray") == "true"
+	uncensored := c.Query("uncensored") == "true"
+	verified := c.Query("verified") == "true"
 
 	s.Name(name)
 	s.Season(season)
@@ -46,15 +46,17 @@ func torrentsSearch(c *gin.Context) {
 	s.Resolution(resolution)
 	s.Source(source)
 	s.Type(mtype)
-	if bluray != "" {
-		s.Bluray(s.Bool(bluray))
+	if bluray {
+		s.Bluray(bluray)
 	}
-	if uncensored != "" {
-		s.Uncensored(s.Bool(uncensored))
+	if uncensored {
+		s.Uncensored(uncensored)
 	}
-	if verified != "" {
-		s.Verified((s.Bool(verified)))
+	if verified {
+		s.Verified(verified)
 	}
+
+	//fmt.Printf("SEARCH: %#v\n", s)
 
 	r, err := s.Results(s.Int(p))
 	if err != nil {

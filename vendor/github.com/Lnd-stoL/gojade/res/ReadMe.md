@@ -1,1 +1,0 @@
-This folder stores Jade example's used for testing purposes. The "verifyjade.jade" file is a special file containing both jade examples taken from http://jade-lang.com/ and html used for asserting the parse results.

@@ -2,18 +2,6 @@
 
 
 [[projects]]
-  branch = "master"
-  name = "github.com/Lnd-stoL/gojade"
-  packages = [".","jadeparser","scanner"]
-  revision = "d40fe3884b504142062e3baabbacce47a82f687a"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/MAD-GooZe/jaderender"
-  packages = ["."]
-  revision = "00150b06aca9675d528a396d1c3113e0b612abed"
-
-[[projects]]
   name = "github.com/dgrijalva/jwt-go"
   packages = [".","request"]
   revision = "d2709f9f1f31ebcda9651b03077758c1f3a0018c"
@@ -36,12 +24,6 @@
   name = "github.com/golang/protobuf"
   packages = ["proto"]
   revision = "5a0f697c9ed9d68fef0116532c6e05cfeae00e55"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/hashicorp/golang-lru"
-  packages = [".","simplelru"]
-  revision = "0a025b7e63adc15a622f29b0b2c4c3848243bbf6"
 
 [[projects]]
   name = "github.com/joho/godotenv"
@@ -88,6 +70,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "49f1ad46b4429f086b4ca6682ff2f70153f01c230a403a62a31b00e16a85d53f"
+  inputs-digest = "8cc7f9563812aeabfbcf19d059b8884daed305809914c56c75c478c8b372b434"
   solver-name = "gps-cdcl"
   solver-version = 1
