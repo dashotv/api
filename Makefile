@@ -20,3 +20,6 @@ docker-run:
 
 docker-push:
 	docker push $(DOCKER)
+
+deploy:
+	sup prod deploy

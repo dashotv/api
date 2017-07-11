@@ -96,7 +96,7 @@ commands:
 
   health:
     desc: Application health check
-    run: curl -i localhost:$HOST_PORT
+    run: sleep 3 && curl -i localhost:$HOST_PORT
 
 #  slack-notify:
 #    desc: Notify Slack about new deployment
