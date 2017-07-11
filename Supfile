@@ -3,9 +3,9 @@
 version: 0.4
 
 networks:
-    production:
-        hosts:
-            - shawn@kimon
+  prod:
+    hosts:
+      - shawn@kimon
 env:
   # Environment variables for all commands
   NAME: dashotv
@@ -96,7 +96,7 @@ commands:
 
   health:
     desc: Application health check
-    run: curl localhost:$HOST_PORT
+    run: curl -i localhost:$HOST_PORT
 
 #  slack-notify:
 #    desc: Notify Slack about new deployment
