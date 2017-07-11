@@ -98,6 +98,16 @@ commands:
     desc: Application health check
     run: sleep 3 && curl -i localhost:$HOST_PORT
 
+  upload_site:
+    desc: Upload nginx conf
+    upload:
+      - src: ./config/
+        dst: /tmp/
+
+  rename_site:
+    desc: Rename the nginx conf
+    run: sudo mv /tmp/config/nginx.conf /srv/nginx/dashotv && sudo service nginx reload
+
 #  slack-notify:
 #    desc: Notify Slack about new deployment
 #    local: >
@@ -115,6 +125,9 @@ commands:
     run: sudo docker exec -i $NAME bash
 
 targets: # Aliases to run multiple commands at once
+  site:
+    - upload_site
+    - rename_site
   deploy:
 #    - pre-build
     - build
