@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"time"
 
@@ -9,7 +10,6 @@ import (
 	"github.com/gin-gonic/gin"
 	_ "github.com/joho/godotenv/autoload"
 
-	"fmt"
 	"github.com/dashotv/models"
 )
 
@@ -49,18 +49,14 @@ func main() {
 	router.Use(corsMiddleware)
 	router.GET("/", homeIndex)
 
-	api := router.Group("/api")
-	api.Use(corsMiddleware)
-	api.Use(Auth(tokenSecret))
-
-	meta := api.Group("/meta")
+	meta := router.Group("/meta")
 	meta.Use(corsMiddleware)
 	meta.Use(Auth(tokenSecret))
 	{
 		meta.GET("/", metaIndex)
 	}
 
-	torrents := api.Group("/torrents")
+	torrents := router.Group("/torrents")
 	{
 		torrents.GET("/", torrentsSearch)
 		torrents.GET("/:id", torrentsShow)
