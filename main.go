@@ -54,13 +54,34 @@ func main() {
 }
 
 func initDB() {
-	host := os.Getenv("DATABASE_HOST")
-	name := os.Getenv("DATABASE_NAME")
+	//host := os.Getenv("DATABASE_HOST")
+	//name := os.Getenv("DATABASE_NAME")
+
+	mode := os.Getenv("GIN_MODE")
+	env := "development"
+	if mode == "release" {
+		env = "production"
+	}
+	config := &models.Config{
+		Host: "127.0.0.1",
+		Torrents: &models.ConfigEntry{
+			Database:   fmt.Sprintf("torch_%s", env),
+			Collection: "torrents",
+		},
+		Media: &models.ConfigEntry{
+			Database:   fmt.Sprintf("seer_%s", env),
+			Collection: "media",
+		},
+		Users: &models.ConfigEntry{
+			Database:   "dashotv",
+			Collection: "users",
+		},
+	}
 
 	t1 := make(chan bool, 1)
 	go func() {
-		fmt.Printf("intializing db connection: %s/%s\n", host, name)
-		models.InitDB(name, host)
+		fmt.Printf("intializing db connection: %s\n", config.Host)
+		models.InitDB(config)
 		t1 <- true
 	}()
 
@@ -87,7 +108,7 @@ func initDB() {
 
 func configureCors() gin.HandlerFunc {
 	corsConfig := cors.Config{
-		AllowOrigins: []string{"https://dasho.tv", "http://localhost:8000", "http://localhost:4200"},
+		AllowOrigins: []string{"http://dasho.tv", "http://www.dasho.tv", "http://localhost:8000", "http://localhost:4200"},
 		AllowMethods: []string{"GET, POST, OPTIONS, PUT, DELETE, HEAD"},
 		AllowHeaders: []string{
 			"Origin",
