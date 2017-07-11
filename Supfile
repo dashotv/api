@@ -5,7 +5,7 @@ version: 0.4
 networks:
     production:
         hosts:
-            - kimon
+            - shawn@kimon
 env:
   # Environment variables for all commands
   NAME: dashotv
@@ -36,7 +36,7 @@ commands:
 
   pull:
     desc: Pull latest Docker image
-    run: docker pull $IMAGE
+    run: sudo docker pull $IMAGE
 
 #  config:
 #    desc: Upload/test config file.
@@ -47,20 +47,20 @@ commands:
 
   stop:
     desc: Stop Docker container
-    run: docker stop $NAME || exit 0
+    run: sudo docker stop $NAME || exit 0
 
   rm:
     desc: Remove Docker container
-    run: docker rm $NAME || exit 0
+    run: sudo docker rm $NAME || exit 0
 
   start:
     desc: Start a stopped Docker container
-    run: docker start $NAME || exit 0
+    run: sudo docker start $NAME || exit 0
 
   run:
     desc: Run Docker container
     run: >
-      docker run -d \
+      sudo docker run -d \
         -p $HOST_PORT:$CONTAINER_PORT \
         --net=host \
         --restart=always \
@@ -73,13 +73,13 @@ commands:
   stop-rm-run:
     desc: Rolling update (stop & remove old Docker container, run new one)
     run: >
-      docker stop $NAME || :; \
-      docker rm $NAME || :; \
-      docker run -d \
-        -p $HOST_PORT:$CONTAINER_PORT \
-        --net=host \
-        --restart=always \
-        --name $NAME $IMAGE
+      sudo docker stop $NAME || :; \
+        sudo docker rm $NAME || :; \
+        sudo docker run -d \
+          -p $HOST_PORT:$CONTAINER_PORT \
+          --net=host \
+          --restart=always \
+          --name $NAME $IMAGE
     serial: 1
 
   ps:
