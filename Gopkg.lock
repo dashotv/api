@@ -14,28 +14,28 @@
   version = "v1.2"
 
 [[projects]]
+  branch = "master"
+  name = "github.com/gin-contrib/sse"
+  packages = ["."]
+  revision = "22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae"
+
+[[projects]]
   name = "github.com/gin-gonic/gin"
   packages = [".","binding","render"]
-  revision = "e2212d40c62a98b388a5eb48ecbdcf88534688ba"
-  version = "v1.1.4"
+  revision = "d459835d2b077e44f7c9b453505ee29881d5d12d"
+  version = "v1.2"
 
 [[projects]]
   branch = "master"
   name = "github.com/golang/protobuf"
   packages = ["proto"]
-  revision = "5a0f697c9ed9d68fef0116532c6e05cfeae00e55"
+  revision = "6a1fa9404c0aebf36c879bc50152edcc953910d2"
 
 [[projects]]
   name = "github.com/joho/godotenv"
   packages = [".","autoload"]
   revision = "726cc8b906e3d31c70a9671c90a13716a8d3f50d"
   version = "v1.1"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/manucorporat/sse"
-  packages = ["."]
-  revision = "ee05b128a739a0fb76c7ebd3ae4810c1de808d6d"
 
 [[projects]]
   name = "github.com/mattn/go-isatty"
@@ -45,15 +45,15 @@
 
 [[projects]]
   branch = "master"
-  name = "golang.org/x/net"
-  packages = ["context"]
-  revision = "1a68b1313cf4ad7778376e82641197b60c02f65c"
+  name = "github.com/ugorji/go"
+  packages = ["codec"]
+  revision = "5efa3251c7f7d05e5d9704a69a984ec9f1386a40"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
-  revision = "0b25a408a50076fbbcae6b7ac0ea5fbb0b085e79"
+  revision = "abf9c25f54453410d0c6668e519582a9e1115027"
 
 [[projects]]
   name = "gopkg.in/go-playground/validator.v8"

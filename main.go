@@ -9,14 +9,18 @@ import (
 	"github.com/gin-gonic/gin"
 	_ "github.com/joho/godotenv/autoload"
 
+	"fmt"
 	"github.com/dashotv/models"
 )
 
 var tokenSecret string
 
 func main() {
-	models.InitDB(os.Getenv("DATABASE_NAME"), os.Getenv("DATABASE_HOST"))
 	tokenSecret = os.Getenv("TOKEN_SECRET")
+	host := os.Getenv("DATABASE_HOST")
+	name := os.Getenv("DATABASE_NAME")
+	mode := os.Getenv("GIN_MODE")
+	fmt.Printf("starting dashotv/api server (%s)...\n", mode)
 
 	router := gin.Default()
 	//router.HTMLRender = jaderender.Default()
@@ -70,5 +74,21 @@ func main() {
 		session.DELETE("/sign_out", sessionDestroy)
 	}
 
+	t1 := make(chan bool, 1)
+	go func() {
+		fmt.Printf("intializing db connection: %s/%s\n", host, name)
+		models.InitDB(name, host)
+		t1 <- true
+	}()
+
+	select {
+	case _ = <-t1:
+		fmt.Println("database initialized")
+	case <-time.After(time.Second * 30):
+		fmt.Println("timed out waiting for database")
+		os.Exit(1)
+	}
+
+	fmt.Println("running router")
 	router.Run()
 }
