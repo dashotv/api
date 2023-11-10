@@ -1,0 +1,108 @@
+repo_name: dashotv/api
+report_id: 2f3a1ebf8e28ec124bbb2fcbaabeeae5
+repo_type: Public
+timestamp: '2023-11-10T00:16:43+00:00'
+requested_by: shawncatz
+provider: github
+branch: master
+detected_tools_count: 9
+tools:
+- name: Golang
+  description: An open source programming language that makes it easy to build simple,
+    reliable, and efficient software
+  website_url: http://golang.org/
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1005/O6AczwfV_400x400.png
+  detection_source: Repo Metadata
+- name: JavaScript
+  description: Lightweight, interpreted, object-oriented language with first-class
+    functions
+  website_url: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source: vendor/github.com/gin-gonic/gin/examples/realtime-advanced/resources/static/prismjs.min.js
+  last_updated_by: Shawn Catanzarite
+  last_updated_on: 2017-06-11 02:58:25.000000000 Z
+- name: Codecov
+  description: Hosted coverage reports with awesome features to enhance your CI workflow
+  website_url: https://codecov.io/
+  open_source: false
+  hosted_saas: true
+  category: Build, Test, Deploy
+  sub_category: Code Coverage
+  image_url: https://img.stackshare.io/service/2673/Codecov_Mark_Circle_Pink.png
+  detection_source: vendor/github.com/gin-gonic/gin/codecov.yml
+  last_updated_by: Shawn Catanzarite
+  last_updated_on: 2017-06-11 02:58:25.000000000 Z
+- name: Docker
+  description: Enterprise Container Platform for High-Velocity Innovation.
+  website_url: https://www.docker.com/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Virtual Machine Platforms & Containers
+  image_url: https://img.stackshare.io/service/586/n4u37v9t_400x400.png
+  detection_source: Repo Metadata
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source: Repo Metadata
+- name: NGINX
+  description: A high performance free open source web server powering busiest sites
+    on the Internet.
+  website_url: http://nginx.org
+  open_source: false
+  hosted_saas: false
+  category: Application Hosting
+  sub_category: Web Servers
+  image_url: https://img.stackshare.io/service/1052/YMxUfyWf.png
+  detection_source: config/nginx.conf
+  last_updated_by: Shawn Catanzarite
+  last_updated_on: 2017-07-11 14:26:44.000000000 Z
+- name: Travis CI
+  description: A hosted continuous integration service for open source and private
+    projects
+  website_url: http://travis-ci.com/
+  open_source: false
+  hosted_saas: true
+  category: Build, Test, Deploy
+  sub_category: Continuous Integration
+  image_url: https://img.stackshare.io/service/460/Lu6cGu0z_400x400.png
+  detection_source: vendor/gopkg.in/yaml.v2/.travis.yml
+  last_updated_by: Shawn Catanzarite
+  last_updated_on: 2017-06-11 02:58:25.000000000 Z
+- name: wercker
+  description: Build, test, and deploy container-native applications
+  website_url: http://wercker.com/
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Continuous Integration
+  image_url: https://img.stackshare.io/service/897/S67KcxKE.png
+  detection_source: vendor/github.com/joho/godotenv/wercker.yml
+  last_updated_by: Shawn Catanzarite
+  last_updated_on: 2017-06-11 02:58:25.000000000 Z
+- name: Ubuntu
+  description: The leading OS for PC, tablet, phone and cloud
+  website_url: http://www.ubuntu.com/
+  open_source: false
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Operating Systems
+  image_url: https://img.stackshare.io/service/3511/cof_orange_hex.jpg
+  detection_source: vendor/golang.org/x/sys/unix/linux/Dockerfile
+  last_updated_by: Shawn Catanzarite
+  last_updated_on: 2017-06-12 00:46:21.000000000 Z
